@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<!-- Mirrored from liveprecise.com/tdepy.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 21 Nov 2022 19:43:22 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Online trolling depth calculator by LivePrecise</title>
+    <meta name="description" content="Fast and accurate trolling depth calculator. Enter your speed and rig to calculate your trolling depth.">
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- My style sheet-->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    
+    <!-- Google Fonts-->
+    <link href='../fonts.googleapis.com/css147f.css?family=Comfortaa' rel='stylesheet' type='text/css'>
+
+    <script src="../ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="js/jQuery.js"></script>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body id="header">
+
+     <div class="container">
+      <div class="col-md-2">
+        <img src="pictures/logo_square.png" class="img-responsive img-rounded picture_margin" alt="Responsive image">
+      </div>
+      <div class="col-md-10">
+        <h1 class="customcolor customfont">LivePrecise</h1>
+        <h4 class="text-center customfont" >Taking the guess work out of life</h4>
+      </div>
+      <hr class="col-md-12">
+    </div> 
+    <div class="container">
+      <div class="jumbotron">
+        <div class="col-md-12">
+        <img src="pictures/tdeicon.png" class="img-responsive img-rounded col-md-3" alt="Responsive image">
+        <h1 class="col-md-6">Trolling depth estimator</h1>
+        </div>
+        <hr class="col-md-12">
+        <div>
+          <p class="col-md-12"> Calculate how deep you are fishing by entering your trolling speed, and your rig information.</p>
+          <p class="col-md-12"> This is a simple online version of the Android app. The <a href="../play.google.com/store/apps/details525a.html?id=com.liveprecise.android.trollingdepthestimator&amp;hl=en">Android apps</a> works offline so take it anywhere!</p>          
+        </div>
+
+
+        <form id="tdeForm" class="form-horizontal" role="form">
+
+          <div class="form-group">
+            <label for="trollingSpeed" class="control-label col-sm-3">Trolling Speed</label>
+            <div class="col-sm-6">
+              <input type="number" step="any" class="form-control" id="trollingSpeed" value=1.5>
+            </div>
+            <div class="col-sm-3">
+                <select class="form-control">
+                <option value="knots">knots</option>
+                <option value="km">km/h</option>
+                <option value="miles">miles/h</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="weight" class="control-label col-sm-3">Weight</label>
+            <div class="col-sm-6">
+              <input type="number" step="any" class="form-control" id="Weight" value=2>
+            </div>
+            <div class="col-sm-3">            
+              <select class="form-control">
+                <option>lb</option>
+                <option>kg</option>
+                <option>oz</option>
+                <option>g</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <p class="text-center">Line</p>
+          </div>
+
+          <div class="form-group">
+            <label for="lMat" class="control-label col-md-3">Material</label>
+            <div class="col-sm-3">   
+              <select class="form-control">
+                <option>Mono</option>
+                <option>Fluoro</option>
+                <option>Braid</option>
+                <option>Steel</option>
+              </select>
+            </div>          
+          </div>
+          
+          <div class="form-group">
+            <label for="lDiameter" class="control-label col-md-3">Diameter</label>
+            <div class="col-sm-6">
+            <input type="number" step="any" class="form-control" id="lDiameter" value=0.02>
+            </div>
+            <div class="col-sm-3">            
+              <select class="form-control">
+                <option>inch</option>
+                <option>mm</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="lLength" class="control-label col-md-3">Length</label>
+            <div class="col-sm-6">
+            <input type="number" step="any" class="form-control" id="lLength" value=30>
+            </div>
+            <div class="col-sm-3">            
+               <select class="form-control">
+                <option>ft</option>
+                <option>m</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <p class="text-center">Result</p>
+          </div>
+          
+          <div class="form-group">
+            <label for="trollingDepth" class="control-label col-md-3">Trolling Depth</label>
+            <div class="col-sm-6">
+              <input id="result" type="number" step="any" class="form-control" id="trollingDepth" value=29.51>
+            </div>
+            <div class="col-sm-3"> 
+              <select class="form-control">
+                <option>ft</option>
+                <option>m</option>
+              </select>
+            </div>
+            </p>
+          </div>
+
+          <div>
+            <button id="calc" type="button" class="btn btn-success center-block" value="Submit form">Calculate</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+
+    <script>
+
+      /* Click Handler for JQuery
+
+      $( "#target" ).click(function() {
+        alert( "Handler for .click() called." );
+      });
+
+      */
+      // Click 
+      $( "#calc" ).click(function() {
+        var trollingDataObj={
+          trollingSpeed:"",
+          trollingUnits:"",
+          sinkerWeight:"",
+          sinkerWeightUnit:"",
+          lineMaterial:"",
+          lineDiameter:"",
+          lineDiameterUnit:"",
+          lineLength:"",
+          lineUnit:"",
+          trollingDepth:"",
+          trollingDepthUnit:""
+
+        };
+        var formData=document.getElementById("tdeForm");
+        var formCounter=0;
+
+        // Fill up the trollingDataObj
+        for (var i in trollingDataObj) {
+          trollingDataObj[i]=formData.elements[formCounter].value;
+          formCounter++;
+        };
+
+        $.getJSON("cgi-bin/tdepython.py", trollingDataObj,function(data) {
+          $('#result').val(data.trollingDepth.toFixed(2));
+        });
+        
+      });
+    </script>
+
+    <script src="js/googleAnalytics.js"></script>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <!-- <script src="js/bootstrap.min.js"></script> -->
+  </body>
+
+<!-- Mirrored from liveprecise.com/tdepy.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 21 Nov 2022 19:43:24 GMT -->
+</html>
